@@ -1,0 +1,537 @@
+{
+	"info": {
+		"_postman_id": "8b325139-f88f-4a6d-9321-76ef9b508a3e",
+		"name": "Base Trade API - Devi Tara Avalokita",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21572937"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/register",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Variants",
+					"item": [
+						{
+							"name": "Get All Variants",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{Bearer Token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/products/variants",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"products",
+										"variants"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "3",
+											"description": "number of data to be shown",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "offset",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "hard",
+											"description": "search by variant name",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Variant By UUID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/products/variants/:variantUUID",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"products",
+										"variants",
+										":variantUUID"
+									],
+									"variable": [
+										{
+											"key": "variantUUID",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Variant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "variant_name",
+											"value": "Hardcover",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "35",
+											"type": "text"
+										},
+										{
+											"key": "product_uuid",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/products/variants",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"products",
+										"variants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Variant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{Bearer Token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "variant_name",
+											"value": "Colored Paperback",
+											"description": "string",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "80",
+											"description": "integer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{url}}:{{port}}/products/variants/:variantUUID",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"products",
+										"variants",
+										":variantUUID"
+									],
+									"variable": [
+										{
+											"key": "variantUUID",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Variant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}:{{port}}/products/variants/:variantUUID",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"products",
+										"variants",
+										":variantUUID"
+									],
+									"variable": [
+										{
+											"key": "variantUUID",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/products/",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "",
+									"description": "number of data to be shown",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "",
+									"description": "offset",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "search by name",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By UUID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/products/:productUUID",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								":productUUID"
+							],
+							"variable": [
+								{
+									"key": "productUUID",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2YWxva2l0YTJAbWFpbC5jb20iLCJpZCI6MiwibmFtZSI6IlRhcmEgMiIsInV1aWQiOiIwMzM5ZTUwMC1iZDliLTQ0Y2MtYjQyZC0xOWYwZmU4ZDI3MzMifQ.gK-7IK3p6jkC-IDWyZ1NiFzB1aKJtd1BOvqWxxDa0tE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/products/",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Bearer Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}:{{port}}/products/:productUUID",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								":productUUID"
+							],
+							"variable": [
+								{
+									"key": "productUUID",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Bearer Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}:{{port}}/products/:productUUID",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								":productUUID"
+							],
+							"variable": [
+								{
+									"key": "productUUID",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "Bearer Token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2YWxva2l0YUBtYWlsLmNvbSIsImlkIjowLCJuYW1lIjoiVGFyYSIsInV1aWQiOiIyOThlNDllOC05NTczLTRjYTMtODY3MS02ZmNmZjhkOTBhMjIifQ.qJ4bmJFY79RYA9wZXhrbsiabrGZW_AzsvnAHGysfJxk"
+		},
+		{
+			"key": "productUUID",
+			"value": "a43a3320-5805-4fd4-8477-e2f2e8750d24"
+		}
+	]
+}
