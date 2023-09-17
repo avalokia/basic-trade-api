@@ -21,8 +21,6 @@ type Product struct {
 }
 
 func (p *Product) BeforeCreate(tx *gorm.DB) (err error) {
-	// Assign UUID
-	p.UUID = uuid.New()
 
 	// Validate struct
 	_, err = govalidator.ValidateStruct(p)
@@ -40,5 +38,7 @@ func (p *Product) BeforeCreate(tx *gorm.DB) (err error) {
 		err = errors.New("PRODUCT NAME IS TOO SHORT. MINIMUM LENGTH IS 4 CHARS")
 	}
 
+	// Assign UUID
+	p.UUID = uuid.New()
 	return err
 }

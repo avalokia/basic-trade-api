@@ -16,7 +16,7 @@ type Admin struct {
 	ID        uint      `gorm:"autoIncrement" json:"id"`
 	UUID      uuid.UUID `gorm:"primaryKey" json:"uuid"`
 	Name      string    `gorm:"type:varchar" json:"name" form:"name"`
-	Email     string    `gorm:"not null;type:varchar" json:"email" form:"email"`
+	Email     string    `gorm:"not null;type:varchar;unique" json:"email" form:"email"`
 	Password  string    `gorm:"not null;type:varchar" json:"password" form:"password"`
 	Products  []Product `gorm:"constraint:OnDelete:CASCADE;foreignKey:AdminUUID;references:UUID"`
 	CreatedAt time.Time `json:"created_at"`
@@ -31,14 +31,26 @@ func (a *Admin) BeforeCreate(tx *gorm.DB) (err error) {
 		return err
 	}
 
-	// Generate uuid
-	a.UUID = uuid.New()
+	// Check if email is valid or empty
+	isEmail := govalidator.IsEmail(a.Email)
+	isEmailEmpty := govalidator.IsNull(a.Email)
+	if !isEmail || isEmailEmpty {
+		return errors.New("EMAIL IS NOT VALID")
+	}
 
 	// Check password requirements
-	if len(a.Password) < 8 {
-		err = errors.New("PASSWORD LENGTH IS TOO SHORT. MINIMUM 8 CHARACTERS")
-		return err
+	if len(a.Password) < 6 {
+		return errors.New("PASSWORD LENGTH IS TOO SHORT. MINIMUM 6 CHARACTERS")
 	}
+
+	// Check if nname is empty
+	isNameEmpty := govalidator.IsNull(a.Name)
+	if isNameEmpty {
+		return errors.New("NAME CANNOT BE EMPTY")
+	}
+
+	// Generate uuid
+	a.UUID = uuid.New()
 
 	// Replace the password data into the hashed password
 	// fmt.Println("Hashing password..")

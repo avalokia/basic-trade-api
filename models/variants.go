@@ -20,8 +20,6 @@ type Variant struct {
 }
 
 func (v *Variant) BeforeCreate(tx *gorm.DB) (err error) {
-	// Assign UUID
-	v.UUID = uuid.New()
 
 	// Validate struct
 	_, err = govalidator.ValidateStruct(v)
@@ -30,8 +28,8 @@ func (v *Variant) BeforeCreate(tx *gorm.DB) (err error) {
 	}
 
 	// Check the quantity
-	if v.Quantity < 0 {
-		err = errors.New("QUANTITY SHOULD NOT BE LESS THAN 0")
+	if v.Quantity <= 0 {
+		err = errors.New("QUANTITY SHOULD NOT BE LESS THAN 1")
 	}
 
 	// Check whether the name is proper
@@ -39,5 +37,7 @@ func (v *Variant) BeforeCreate(tx *gorm.DB) (err error) {
 		err = errors.New("VARIANT NAME IS TOO SHORT. MINIMUM LENGTH IS 4 CHARACTERS")
 	}
 
+	// Assign UUID
+	v.UUID = uuid.New()
 	return err
 }
