@@ -34,7 +34,7 @@ func StartServer() *gin.Engine {
 		variantRouter.GET("/", controllers.GetAllVariant)
 		variantRouter.GET("/:variantUUID", controllers.GetVariantByID)
 
-		productRouter.Use(middlewares.Authentication())
+		variantRouter.Use(middlewares.Authentication())
 		variantRouter.POST("/", middlewares.CreateVariantAuthorization(), controllers.CreateVariant)
 
 		variantRouter.PUT("/:variantUUID", middlewares.VariantAuthorization(), controllers.UpdateVariant)
