@@ -49,8 +49,8 @@ func StartDB() error {
 // Get DB that has been started by StartDB()
 func GetDB() *gorm.DB {
 	// If db hasn't been started, start db
-	if db == nil {
-		StartDB()
-	}
+	// if db == nil {
+	// 	StartDB()
+	// }
 	return db
 }

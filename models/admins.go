@@ -43,7 +43,7 @@ func (a *Admin) BeforeCreate(tx *gorm.DB) (err error) {
 		return errors.New("PASSWORD LENGTH IS TOO SHORT. MINIMUM 6 CHARACTERS")
 	}
 
-	// Check if nname is empty
+	// Check if name is empty
 	isNameEmpty := govalidator.IsNull(a.Name)
 	if isNameEmpty {
 		return errors.New("NAME CANNOT BE EMPTY")

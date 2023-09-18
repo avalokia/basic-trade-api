@@ -40,6 +40,9 @@ func UserRegister(c *gin.Context) {
 	}
 
 	fmt.Println("Admin Data:", Admin)
+	if db == nil {
+		fmt.Println("db is nil")
+	}
 
 	// Input to DB
 	err := db.Debug().Create(&Admin).Error
