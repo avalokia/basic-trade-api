@@ -1,6 +1,10 @@
 ## Final Project - Basic Trade API
 The final project is to create an application called BasicTrade. The admin (seller) can create a product, storing the product's image, and create variant for the product.
 
+The project is deployed on: 
+### https://basic-trade-api-production-b019.up.railway.app
+
+
 ## Environment
 In my local environment, I used **PostgreSQL** for the database. Thus, the package that I imported in `db.go` is `"gorm.io/driver/postgres"`. In cases where other database is used, please change accordingly.
 
@@ -10,7 +14,7 @@ For an example of the .env file, there's an `env.example` file in the repository
 
 ## Endpoints
 The postman collection is provided in `Base Trade API - Devi Tara Avalokita.postman_collection` file.
-The `url` and the `port` is set as an environment variable that can be changed accordingly.
+The `url` is set as an environment variable that can be changed accordingly.
 
 | Method | URL | Description |
 | ------ | --- | ----------- |
