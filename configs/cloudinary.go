@@ -5,16 +5,15 @@ import (
 	"os"
 
 	"github.com/cloudinary/cloudinary-go/v2"
-	"github.com/joho/godotenv"
 )
 
 // Initialize cloudinary instance
 func InitializeCloudinary() (*cloudinary.Cloudinary, error) {
 	// Retrieve from .env
-	err := godotenv.Load()
-	if err != nil {
-		return nil, err
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	return nil, err
+	// }
 	cloud := os.Getenv("CLOUDINARY_CLOUD_NAME")
 	key := os.Getenv("CLOUDINARY_KEY")
 	secret := os.Getenv("CLOUDINARY_SECRET")
