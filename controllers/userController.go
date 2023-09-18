@@ -40,7 +40,7 @@ func UserRegister(c *gin.Context) {
 	}
 
 	// Input to DB
-	err := db.Create(&Admin).Error
+	err := db.Debug().Create(&Admin).Error
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error":   "Failed creating data to DB",
