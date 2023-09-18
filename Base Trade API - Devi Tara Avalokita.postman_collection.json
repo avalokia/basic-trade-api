@@ -19,28 +19,26 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "",
+									"value": "avalokita3",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "",
+									"value": "avalokita3@mail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "",
+									"value": "akuinginjadipintar",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}:{{port}}/auth/register",
-							"protocol": "http",
+							"raw": "{{url}}/auth/register",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"auth",
 								"register"
@@ -59,23 +57,21 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "",
+									"value": "avalokita3@mail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "",
+									"value": "akuinginjadipintar",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}:{{port}}/auth/login",
-							"protocol": "http",
+							"raw": "{{url}}/auth/login",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"auth",
 								"login"
@@ -100,7 +96,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{Bearer Token}}",
+											"value": "",
 											"type": "string"
 										}
 									]
@@ -108,12 +104,10 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://{{url}}:{{port}}/products/variants",
-									"protocol": "http",
+									"raw": "{{url}}/products/variants",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{port}}",
 									"path": [
 										"products",
 										"variants"
@@ -158,12 +152,10 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://{{url}}:{{port}}/products/variants/:variantUUID",
-									"protocol": "http",
+									"raw": "{{url}}/products/variants/:variantUUID",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{port}}",
 									"path": [
 										"products",
 										"variants",
@@ -172,7 +164,7 @@
 									"variable": [
 										{
 											"key": "variantUUID",
-											"value": ""
+											"value": "eef9e5c5-9667-42aa-8741-23fe55b29704"
 										}
 									]
 								}
@@ -187,7 +179,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -204,23 +196,21 @@
 										},
 										{
 											"key": "quantity",
-											"value": "35",
+											"value": "25",
 											"type": "text"
 										},
 										{
 											"key": "product_uuid",
-											"value": "",
+											"value": "fbcaed05-4c50-4160-935c-15ea0e19abd0",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://{{url}}:{{port}}/products/variants",
-									"protocol": "http",
+									"raw": "{{url}}/products/variants",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{port}}",
 									"path": [
 										"products",
 										"variants"
@@ -237,7 +227,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{Bearer Token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -262,12 +252,10 @@
 									]
 								},
 								"url": {
-									"raw": "http://{{url}}:{{port}}/products/variants/:variantUUID",
-									"protocol": "http",
+									"raw": "{{url}}/products/variants/:variantUUID",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{port}}",
 									"path": [
 										"products",
 										"variants",
@@ -276,7 +264,7 @@
 									"variable": [
 										{
 											"key": "variantUUID",
-											"value": ""
+											"value": "80ed617e-af90-4ea1-989a-711fca135be5"
 										}
 									]
 								}
@@ -291,7 +279,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -299,12 +287,10 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://{{url}}:{{port}}/products/variants/:variantUUID",
-									"protocol": "http",
+									"raw": "{{url}}/products/variants/:variantUUID",
 									"host": [
 										"{{url}}"
 									],
-									"port": "{{port}}",
 									"path": [
 										"products",
 										"variants",
@@ -313,7 +299,7 @@
 									"variable": [
 										{
 											"key": "variantUUID",
-											"value": ""
+											"value": "70267e96-6f5d-4180-acf3-e29f1825f0a1"
 										}
 									]
 								}
@@ -328,12 +314,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{url}}:{{port}}/products/",
-							"protocol": "http",
+							"raw": "{{url}}/products/",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products",
 								""
@@ -341,7 +325,7 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "",
+									"value": "1",
 									"description": "number of data to be shown",
 									"disabled": true
 								},
@@ -353,7 +337,7 @@
 								},
 								{
 									"key": "search",
-									"value": "",
+									"value": "before",
 									"description": "search by name",
 									"disabled": true
 								}
@@ -368,12 +352,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{url}}:{{port}}/products/:productUUID",
-							"protocol": "http",
+							"raw": "{{url}}/products/:productUUID",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products",
 								":productUUID"
@@ -381,7 +363,7 @@
 							"variable": [
 								{
 									"key": "productUUID",
-									"value": ""
+									"value": "84ed5436-6e3e-4189-8de6-1f94bb2903ad"
 								}
 							]
 						}
@@ -396,7 +378,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF2YWxva2l0YTJAbWFpbC5jb20iLCJpZCI6MiwibmFtZSI6IlRhcmEgMiIsInV1aWQiOiIwMzM5ZTUwMC1iZDliLTQ0Y2MtYjQyZC0xOWYwZmU4ZDI3MzMifQ.gK-7IK3p6jkC-IDWyZ1NiFzB1aKJtd1BOvqWxxDa0tE",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -408,23 +390,21 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "",
+									"value": "Before Your Memory Fades",
 									"type": "text"
 								},
 								{
 									"key": "file",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/Avalokita/Downloads/before-your-memory-fades.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}:{{port}}/products/",
-							"protocol": "http",
+							"raw": "{{url}}/products/",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products",
 								""
@@ -441,7 +421,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{Bearer Token}}",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -453,7 +433,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "",
+									"value": "Before Your Memory Fades",
 									"type": "text"
 								},
 								{
@@ -465,12 +445,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://{{url}}:{{port}}/products/:productUUID",
-							"protocol": "http",
+							"raw": "{{url}}/products/:productUUID",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products",
 								":productUUID"
@@ -478,7 +456,7 @@
 							"variable": [
 								{
 									"key": "productUUID",
-									"value": ""
+									"value": "84ed5436-6e3e-4189-8de6-1f94bb2903ad"
 								}
 							]
 						}
@@ -493,7 +471,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{Bearer Token}}",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -501,12 +479,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://{{url}}:{{port}}/products/:productUUID",
-							"protocol": "http",
+							"raw": "{{url}}/products/:productUUID",
 							"host": [
 								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products",
 								":productUUID"
@@ -514,7 +490,7 @@
 							"variable": [
 								{
 									"key": "productUUID",
-									"value": ""
+									"value": "1a7ffe8e-3cad-473e-95c5-976de05be624"
 								}
 							]
 						}
