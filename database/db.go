@@ -15,7 +15,7 @@ var (
 )
 
 // Get DB credentials from .env file and connect the DB
-func StartDB() error {
+func StartDB() {
 	// Load .env file
 	// err := godotenv.Load()
 	// if err != nil {
@@ -34,16 +34,13 @@ func StartDB() error {
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalln("Failed connecting DB:", err)
-		return err
 	}
 
 	// Auto migration
 	err = db.Debug().AutoMigrate(models.Admin{}, models.Product{}, models.Variant{})
 	if err != nil {
 		log.Fatalln("Failed to auto migrate:", err)
-		return err
 	}
-	return nil
 }
 
 // Get DB that has been started by StartDB()
