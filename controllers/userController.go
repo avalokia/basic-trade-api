@@ -39,6 +39,8 @@ func UserRegister(c *gin.Context) {
 		}
 	}
 
+	fmt.Println("Admin Data:", Admin)
+
 	// Input to DB
 	err := db.Debug().Create(&Admin).Error
 	if err != nil {
